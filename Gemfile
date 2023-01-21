@@ -70,3 +70,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "awesome_print", "~> 1.9"
+
+gem "pry-rails", "~> 0.3.9"
+
+gem "rspec-rails", "~> 6.0"

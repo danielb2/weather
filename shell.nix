@@ -5,6 +5,7 @@ mkShell {
     git
     tig
     sqlite
+    redis
   ];
   shellHook = ''
 	export GEM_HOME=$(pwd)/.ruby
