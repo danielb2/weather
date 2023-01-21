@@ -76,3 +76,5 @@ gem "awesome_print", "~> 1.9"
 gem "pry-rails", "~> 0.3.9"
 
 gem "rspec-rails", "~> 6.0"
+
+gem "redis", "~> 5.0"
