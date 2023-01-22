@@ -39,4 +39,8 @@ RSpec.describe Address do
     expect(forecast[0].date).to be_a(Time) 
     expect(forecast[0].date.to_i).to be_within(3600*24).of(Time.now.to_i) 
   end
+  
+  it "should fail well on a bad address" do
+    skip
+  end
 end

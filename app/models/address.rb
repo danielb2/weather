@@ -70,6 +70,10 @@ class Address::Weather
     def date
         Time.at(@data['dt'])
     end
+    
+    def nice_date
+        date.strftime("%F %H:%M")
+    end
 
     def temp
         @data['main']['temp']
