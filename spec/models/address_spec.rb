@@ -8,6 +8,11 @@ RSpec.describe Address do
     expect(address.zipcode).to eq('441 30')
   end
 
+  it "gets the place name of an address" do
+    address = Address.new 'bend,or'
+    expect(address.place_name).to eq('Bend, Oregon, United States')
+  end
+
   it "allows to get a country code from address" do
     address = Address.new 'bend,or'
     expect(address.country_code).to eq('us')

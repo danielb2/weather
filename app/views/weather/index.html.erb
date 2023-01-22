@@ -4,11 +4,10 @@
   <%= form.submit "Submit" %>
 <% end %>
 <% if @address %>
+    <h2><%= @address.place_name %></h2>
+    <hr style="width: 100%">
   <div>
-  <%= rows_for_weather([@address.current_weather]) %>
-  </div>
-  <div>
-    <h2>Current Weather </h2>
+    <h3>Current Weather </h3>
     <table>
       <thead>
         <tr>
@@ -24,7 +23,7 @@
     </table>
   </div>
   <div>
-    <h2>Forecast</h2>
+    <h3>Forecast</h3>
     <table>
       <thead>
         <tr>

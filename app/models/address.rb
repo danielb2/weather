@@ -35,6 +35,10 @@ class Address
         @jq = JQ(response.body)
     end
     
+    def place_name
+        jq = geocode
+        return jq.search('.features[].place_name').first
+    end
   
     def zipcode
         jq = geocode
