@@ -2,6 +2,11 @@
 
 -   run tests with `rake spec`
 -   using [nix] here to ensure reproducibility for this project, please refer [shell.nix](/shell.nix) to see dependencies
+-   requires key set for openweathermap api using `rails credentials:edit` <br>
+    ```
+    openweathermap:
+        api_key: <key_here>
+    ```
 
 [nix]: https://nixos.org/download.html
 

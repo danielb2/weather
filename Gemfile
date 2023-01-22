@@ -78,3 +78,5 @@ gem "pry-rails", "~> 0.3.9"
 gem "rspec-rails", "~> 6.0"
 
 gem "redis", "~> 5.0"
+
+gem "openweathermap", "~> 0.2.3"

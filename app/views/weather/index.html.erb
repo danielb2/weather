@@ -1,0 +1,33 @@
+
+
+<%= form_with url: "/lookup", method: :get do |form| %>
+  <%= form.label :query, "Enter address for weather lookup:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Submit" %>
+<% end %>
+
+
+<p>
+
+<%= @something %>
+</p>
+<blockquote>
+  test
+  </blockquote>
+  
+  <code>
+    another example
+    </code>
+    
+
+    <pre>
+<code>
+  body {
+    color: var(--text);
+    background: var(--bg);
+    font-size: 1.15rem;
+    line-height: 1.5;
+        margin: 0;
+  }
+</code>
+</pre>

@@ -131,6 +131,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.0-x86_64-darwin)
       racc (~> 1.4)
+    openweathermap (0.2.3)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -245,6 +246,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  openweathermap (~> 0.2.3)
   pry-rails (~> 0.3.9)
   puma (~> 5.0)
   rails (~> 7.0.4)
