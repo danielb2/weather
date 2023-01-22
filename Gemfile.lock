@@ -92,6 +92,7 @@ GEM
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    excon (0.97.2)
     globalid (1.0.1)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -117,8 +118,10 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
     minitest (5.17.0)
     msgpack (1.6.0)
+    multi_json (1.15.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -196,6 +199,9 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    ruby-jq (0.2.1)
+      mini_portile2 (>= 2.2.0)
+      multi_json
     rubyzip (2.3.2)
     selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -244,6 +250,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  excon (~> 0.97.2)
   importmap-rails
   jbuilder
   openweathermap (~> 0.2.3)
@@ -252,6 +259,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   redis (~> 5.0)
   rspec-rails (~> 6.0)
+  ruby-jq (~> 0.2.1)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

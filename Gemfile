@@ -80,3 +80,7 @@ gem "rspec-rails", "~> 6.0"
 gem "redis", "~> 5.0"
 
 gem "openweathermap", "~> 0.2.3"
+
+gem "excon", "~> 0.97.2"
+
+gem "ruby-jq", "~> 0.2.1"

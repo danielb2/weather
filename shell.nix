@@ -6,6 +6,7 @@ mkShell {
     tig
     sqlite
     redis
+    oniguruma
   ];
   shellHook = ''
 	export GEM_HOME=$(pwd)/.ruby
