@@ -44,26 +44,48 @@ class Address
         "#{zipcode.gsub(' ', '')},#{country_code}"
     end
     
+    # can make the units depending on country here but for this exercise this is fine
     def current_weather
-        return Weather.new()
+        response = Excon.get "https://api.openweathermap.org/data/2.5/weather", query: { zip: openweathermap_zip, units: :imperial,
+            appid: @@owm_key }
+        
+        return Weather.new(JSON.parse(response.body))
     end
     
     def forecast
-        [] # array of Weather
+        response = Excon.get "https://api.openweathermap.org/data/2.5/forecast", query: { zip: openweathermap_zip, units: :imperial,
+            appid: @@owm_key }
+        
+        return JSON.parse(response.body)['list'].map do |weather|
+            Weather.new(weather)
+        end
     end
 end
 
 class Address::Weather
-    def initialize
+    def initialize(data)
+        @data = data
     end
+
     def date
+        Time.at(@data['dt'])
     end
+
     def temp
+        @data['main']['temp']
+    rescue Exception
+        nil
     end
     
-    def temp_high
+    def temp_max
+        @data['main']['temp_max']
+    rescue Exception
+        nil
     end
-    def temp_low
+    def temp_min
+        @data['main']['temp_min']
+    rescue Exception
+        nil
     end
 end
 

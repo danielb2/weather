@@ -21,10 +21,22 @@ RSpec.describe Address do
   end
 
   it "returns weather for address" do
-    skip 'not done yet'
-    address = Address.new 'alingsas'
+    address = Address.new 'bend,or'
     current_weather = address.current_weather
-    expect(current_weather.temperature).to eq('23')
-    expect(current_weather.temp).to eq('323')
+    expect(current_weather.temp).to be_between(0, 130).inclusive
+    expect(current_weather.temp_min).to be_between(0, 130).inclusive
+    expect(current_weather.temp_max).to be_between(0, 130).inclusive
+    expect(current_weather.date).to be_a(Time) 
+    expect(current_weather.date.to_i).to be_within(3600*24).of(Time.now.to_i) 
+  end
+
+  it "returns forecast weather for address" do
+    address = Address.new 'bend,or'
+    forecast = address.forecast
+    expect(forecast[0].temp).to be_between(0, 130).inclusive
+    expect(forecast[0].temp_min).to be_between(0, 130).inclusive
+    expect(forecast[0].temp_max).to be_between(0, 130).inclusive
+    expect(forecast[0].date).to be_a(Time) 
+    expect(forecast[0].date.to_i).to be_within(3600*24).of(Time.now.to_i) 
   end
 end
