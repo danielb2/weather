@@ -15,23 +15,6 @@ class Address
          @@owm_key = key
     end
     
-    class Weather
-        def initialize
-        end
-        def date
-        end
-        def temp
-        end
-        
-        def temp_high
-        end
-        def temp_low
-        end
-    end
-
-  @@mapbox_key = ENV['MAPBOX_ACCESS_TOKEN']
-  @@openweathermap = ENV['Somethign']
-  
     def initialize(address)
         @address = address.strip.gsub(' ', '+') # dont need spaces in our address
         @jq = geocode
@@ -50,6 +33,16 @@ class Address
         jq = geocode
         return jq.search('[.features[].context[] | select(.id | match("postcode"))][0].text').first
     end
+
+    def country_code
+        jq = geocode
+        return jq.search('[.features[].context[] | select(.id | match("country"))][0].short_code').first
+    end
+    
+    # zip formatted for openweathermap zip,country_code
+    def openweathermap_zip
+        "#{zipcode.gsub(' ', '')},#{country_code}"
+    end
     
     def current_weather
         return Weather.new()
@@ -59,3 +52,18 @@ class Address
         [] # array of Weather
     end
 end
+
+class Address::Weather
+    def initialize
+    end
+    def date
+    end
+    def temp
+    end
+    
+    def temp_high
+    end
+    def temp_low
+    end
+end
+
