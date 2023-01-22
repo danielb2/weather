@@ -6,6 +6,7 @@ class Address
     
     @@mapbox_key = ENV['MAPBOX_ACCESS_TOKEN']
     @@owm_key = ENV['OWM_API_KEY']
+    # @@redis = Redis.new
 
     def self.mapbox_key=(key)
          @@mapbox_key = key
@@ -18,6 +19,12 @@ class Address
     def initialize(address)
         @address = address.strip.gsub(' ', '+') # dont need spaces in our address
         @jq = geocode
+    end
+    
+    def set_cache()
+    end
+    
+    def get_cache()
     end
     
     def geocode

@@ -5,6 +5,9 @@
 <% end %>
 <% if @address %>
   <div>
+  <%= rows_for_weather([@address.current_weather]) %>
+  </div>
+  <div>
     <h2>Current Weather </h2>
     <table>
       <thead>
@@ -16,12 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td> <%= @address.current_weather.nice_date %> </td>
-          <td> <%= @address.current_weather.temp %> </td>
-          <td> <%= @address.current_weather.temp_max %> </td>
-          <td> <%= @address.current_weather.temp_min %> </td>
-        </tr>
+        <%= rows_for_weather([@address.current_weather]) %>
       </tbody>
     </table>
   </div>
@@ -30,17 +28,14 @@
     <table>
       <thead>
         <tr>
+          <th>Date</th>
           <th>Temp</th>
           <th>Max Temp</th>
           <th>Min Temp</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td> <%= @address.current_weather.temp %> </td>
-          <td> <%= @address.current_weather.temp_max %> </td>
-          <td> <%= @address.current_weather.temp_min %> </td>
-        </tr>
+        <%= rows_for_weather(@address.forecast) %>
       </tbody>
     </table>
   </div>
