@@ -25,6 +25,7 @@
 -   some more testing could be done, on the request endpoints, but I think this is good enough for this exercise
 -   it's unclear why I can pull London's weather data using the API call using just a query, but I can't do it using the zip API call
 -   I'm not implementing user ability to choose units (metric/imperial) but it's something that would be useful
+-   sometimes a city and weather could be found, but there's no zipccode, so the city just isn't displayed. for example, saigon weather could be shown with a different API. I decided to skip that functionality since the requirements was to cache on zip, and I think it's beyond the scope. I want to mention this detail for your reflection
 
 [nix]: https://nixos.org/download.html
 [mapbox]: https://www.mapbox.com/
