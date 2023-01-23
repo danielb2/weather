@@ -80,8 +80,14 @@ class Address
 
         response = Excon.get "https://api.mapbox.com/geocoding/v5/mapbox.places/#{address}.json",
         query: { access_token: @@mapbox_key }
-
+        
         jq = JQ(response.body)
+
+        if response.status != 200
+            message = jq.search('.message').first
+            raise CityNotFound.new(message)
+        end
+
 
         @place_name = jq.search('.features[].place_name').first
 

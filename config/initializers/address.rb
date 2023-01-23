@@ -1,3 +1,3 @@
 require 'address'
-Address.mapbox_key=Rails.application.credentials.mapbox_access_token || ENV['MAPBOX_ACCESS_TOKEN']
-Address.owm_key=Rails.application.credentials.owm_api_key || ENV['OWM_API_KEY']
+Address.mapbox_key=ENV['MAPBOX_ACCESS_TOKEN'] || Rails.application.credentials.mapbox_access_token
+Address.owm_key= ENV['OWM_API_KEY'] || Rails.application.credentials.owm_api_key

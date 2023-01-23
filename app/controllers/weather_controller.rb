@@ -14,6 +14,8 @@ class WeatherController < ApplicationController
             flash[:error] = "City Not Found Error: " + e.message
         rescue WeatherNotFound => e
             flash[:error] = "Weather Not Found Error: " + e.message
+        rescue Redis::CannotConnectError
+            flash[:error] = "Ah. You need to run redis. I'm using that for caching"
         end
         return render :index
     end 

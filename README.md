@@ -8,7 +8,7 @@
     mapbox_access_token: <token>
     owm_api_key: <token>
     ```
-    or set using ENV['MAPBOX_ACCESS_TOKEN']
+    or set using env 'MAPBOX_ACCESS_TOKEN' and OWM_API_KEY
     NOTE: I went with [mapbox] because their geocoding was more lenient with giving a zipcode without needing to specify a street as part of the address. Also, openweathermap's geocode doesn't return zipcode
 -   the requirement to look up by address and then cache by zipcode is peculiar. basically it means I need to use geocoding to first get the zipcode which then requires more specific address than the weather API needs. It was also more precise than googles API, for example, with my own address which google actually got wrong.
     -   it would make sense to also cache the address so the geocoding api doesn't need to be called each time
