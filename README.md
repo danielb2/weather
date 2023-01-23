@@ -1,6 +1,7 @@
 # README
 
 -   You'll need to `brew install oniguruma` on a mac. Search for how to install it in the FAQ here: https://github.com/stedolan/jq/wiki/FAQ#installation or use [nix].
+-   You need to run redis as I'm using that for cache/expiration
 -   run tests with `rake spec`
 -   using [nix] here to ensure reproducibility for this project, please refer [shell.nix](/shell.nix) to see dependencies
 -   requires key set for [mapbox] api using `rails credentials:edit` and openweathermap api key <br>
@@ -21,23 +22,19 @@
 [nix]: https://nixos.org/download.html
 [mapbox]: https://www.mapbox.com/
 
-Things you may want to cover:
+# Examples
 
--   Ruby version
+## Just a city name
 
--   System dependencies
+![tempe](./images/../screenshots/tempe.png)
 
--   Configuration
+## Specific address
 
--   Database creation
+![specific](./images/../screenshots/specific_address.png)
 
--   Database initialization
+## works worldwide
 
--   How to run the test suite
-
--   Services (job queues, cache servers, search engines, etc.)
-
--   Deployment instructions
+![specific](./images/../screenshots/stockholm.png)
 
 # Coding Assignment
 
