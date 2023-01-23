@@ -1,3 +1,10 @@
+- [README](#readme)
+- [Coding Assignment](#coding-assignment)
+- [Examples](#examples)
+  - [Just a city name](#just-a-city-name)
+  - [Specific address](#specific-address)
+  - [works worldwide](#works-worldwide)
+
 # README
 
 -   You'll need to `brew install oniguruma` on a mac. Search for how to install it in the FAQ here: https://github.com/stedolan/jq/wiki/FAQ#installation or use [nix].
@@ -22,20 +29,6 @@
 [nix]: https://nixos.org/download.html
 [mapbox]: https://www.mapbox.com/
 
-# Examples
-
-## Just a city name
-
-![tempe](./images/../screenshots/tempe.png)
-
-## Specific address
-
-![specific](./images/../screenshots/specific_address.png)
-
-## works worldwide
-
-![specific](./images/../screenshots/stockholm.png)
-
 # Coding Assignment
 
 Requirements:
@@ -58,3 +51,17 @@ Submission:
 
 -   Use a public source code repository (GitHub, etc) to store your code
 -   Send us the link to your completed code
+
+# Examples
+
+## Just a city name
+
+![tempe](./images/../screenshots/tempe.png)
+
+## Specific address
+
+![specific](./images/../screenshots/specific_address.png)
+
+## works worldwide
+
+![specific](./images/../screenshots/stockholm.png)
