@@ -44,12 +44,12 @@ Things you may want to cover:
 Requirements:
 
 -   [x] Must be done in Ruby on Rails
--   [ ] Accept an address as input
--   [ ] Retrieve forecast data for the given address. This should include, at minimum, the
+-   [x] Accept an address as input
+-   [x] Retrieve forecast data for the given address. This should include, at minimum, the
         current temperature (Bonus points - Retrieve high/low and/or extended forecast)
--   [ ] Display the requested forecast details to the user
--   [ ] Cache the forecast details for 30 minutes for all subsequent requests by zip codes.
-    -   [ ] Display indicator if result is pulled from cache.
+-   [x] Display the requested forecast details to the user
+-   [x] Cache the forecast details for 30 minutes for all subsequent requests by zip codes.
+    -   [x] Display indicator if result is pulled from cache.
 
 Assumptions:
 
