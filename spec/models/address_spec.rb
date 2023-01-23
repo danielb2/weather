@@ -7,7 +7,7 @@ RSpec.describe Address do
     address = Address.new 'alingsas'
     expect(address.zipcode).to eq('441 30')
   end
-
+  
   it "gets the place name of an address" do
     address = Address.new 'bend,or'
     expect(address.place_name).to eq('Bend, Oregon, United States')
@@ -45,7 +45,17 @@ RSpec.describe Address do
     expect(forecast[0].date.to_i).to be_within(3600*24).of(Time.now.to_i) 
   end
   
-  it "should fail well on a bad address" do
-    skip
+  it "should fail well on a bad address that's really a country" do
+    expect {
+      address = Address.new 'sweden'
+
+    }.to raise_error(CityNotFound)
+  end
+
+  it "should fail on just a non-existent place" do
+    expect {
+      address = Address.new 'imeanwhataretheodds'
+      
+    }.to raise_error(CityNotFound)
   end
 end

@@ -89,8 +89,12 @@ class Address
             raise CityNotFound.new 'No information for this city'
         end
 
-        @zipcode = jq.search('[.features[].context[] | select(.id | match("postcode"))][0].text').first
-        @country_code = jq.search('[.features[].context[] | select(.id | match("country"))][0].short_code').first
+        begin
+            @zipcode = jq.search('[.features[].context[] | select(.id | match("postcode"))][0].text')&.first
+            @country_code = jq.search('[.features[].context[] | select(.id | match("country"))][0].short_code')&.first
+        rescue JQ::Error => e
+            raise CityNotFound.new 'Problem finding zipcode. Is this a city?'
+        end
         # zip formatted for openweathermap zip,country_code
         @openweathermap_zip = "#{@zipcode},#{@country_code}"
         return nil # this is a side_effect function
@@ -99,7 +103,7 @@ class Address
     def get_current
         
         response = Excon.get "https://api.openweathermap.org/data/2.5/weather", query: { zip: openweathermap_zip, units: :imperial,
-            appid: @@owm_key }, debug: true
+            appid: @@owm_key }, debug: false
         
         json = JSON.parse(response.body)
 
