@@ -3,9 +3,19 @@
   <%= form.text_field :query %>
   <%= form.submit "Submit" %>
 <% end %>
+
+<% flash.each do |type, msg| %>
+  <div style="color:red">
+    <%= msg %>
+  </div>
+<% end %>
+
 <% if @address %>
     <h2><%= @address.place_name %></h2>
     <hr style="width: 100%">
+<% end %>
+
+<% if @current_weather %>
   <div>
     <h3>Current Weather </h3>
     <table>
@@ -18,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= rows_for_weather([@address.current_weather]) %>
+        <%= rows_for_weather([@current_weather]) %>
       </tbody>
     </table>
   </div>
@@ -34,7 +44,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= rows_for_weather(@address.forecast) %>
+        <%= rows_for_weather(@forecast) %>
       </tbody>
     </table>
   </div>

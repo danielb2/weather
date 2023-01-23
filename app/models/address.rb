@@ -2,6 +2,12 @@ require 'excon'
 require 'redis'
 require 'jq'
 
+class CityNotFound < Exception
+end
+
+class WeatherNotFound < Exception
+end
+
 class Address
     
     @@mapbox_key = ENV['MAPBOX_ACCESS_TOKEN']
@@ -33,7 +39,14 @@ class Address
         query: { access_token: @@mapbox_key }
 
         @jq = JQ(response.body)
+
+        if not @jq.search('.features[].place_name').first
+            raise CityNotFound.new 'No information for this city'
+        end
+
+        return @jq
     end
+    
     
     def place_name
         jq = geocode
@@ -60,7 +73,13 @@ class Address
         response = Excon.get "https://api.openweathermap.org/data/2.5/weather", query: { zip: openweathermap_zip, units: :imperial,
             appid: @@owm_key }
         
-        return Weather.new(JSON.parse(response.body))
+        json = JSON.parse(response.body)
+
+        if response.status == 200
+            return Weather.new(json)
+        end
+        
+        raise WeatherNotFound.new(json['message'])
     end
     
     def forecast
