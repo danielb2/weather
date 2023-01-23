@@ -22,7 +22,7 @@ RSpec.describe Address do
 
   it "returns openweathermap format for zipcode lookup" do
     address = Address.new 'alingsas'
-    expect(address.openweathermap_zip).to eq('44130,se')
+    expect(address.openweathermap_zip).to eq('441 30,se')
   end
 
   it "returns weather for address" do

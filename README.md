@@ -9,10 +9,14 @@
     owm_api_key: <token>
     ```
     or set using ENV['MAPBOX_ACCESS_TOKEN']
-    NOTE: I went with [mapbox] because their geocoding was more lenient with giving a zipcode without needing to specify a street as part of the address
+    NOTE: I went with [mapbox] because their geocoding was more lenient with giving a zipcode without needing to specify a street as part of the address. Also, openweathermap's geocode doesn't return zipcode
 -   the requirement to look up by address and then cache by zipcode is peculiar. basically it means I need to use geocoding to first get the zipcode which then requires more specific address than the weather API needs. It was also more precise than googles API, for example, with my own address which google actually got wrong.
     -   it would make sense to also cache the address so the geocoding api doesn't need to be called each time
 -   i can use something like VCR to test the external calls to API but I think that's beyond the scope for this assignment
+-   no idea how long I spent on this. I did it over the weekend with a lot of interrupts.
+-   some more testing could be done, on the request endpoints, but I think this is good enough for this exercise
+-   it's unclear why I can pull London's weather data using the API call using just a query, but I can't do it using the zip API call
+-   I'm not implementing user ability to choose units (metric/imperial) but it's something that would be useful
 
 [nix]: https://nixos.org/download.html
 [mapbox]: https://www.mapbox.com/
